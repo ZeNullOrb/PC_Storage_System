@@ -14,7 +14,8 @@ class PartController extends Controller
      */
     public function index()
     {
-        return part::all();
+        $parts = part::all();
+        return view('part.index',compact('parts'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PartController extends Controller
      */
     public function create()
     {
-        //
+        return view('part.create');
     }
 
     /**
@@ -36,7 +37,7 @@ class PartController extends Controller
     public function store(Request $request)
     {
         $part = part::create($request->all());
-        return $part;
+        return redirect('part');
     }
 
     /**
@@ -48,7 +49,7 @@ class PartController extends Controller
     public function show($id)
     {
         $part = part::find($id);
-        return $part;
+        return view('part.show',compact('part'));
     }
 
     /**
@@ -59,7 +60,7 @@ class PartController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('part.edit',compact('part'));
     }
 
     /**
@@ -71,8 +72,9 @@ class PartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $part = part::find($id)->update($request->all());
-        return $part;
+        $part = part::find($id);
+        $part->update($request->all());
+        return redirect('part/'.$part->id);
     }
 
     /**
@@ -84,6 +86,6 @@ class PartController extends Controller
     public function destroy($id)
     {
         $part = part::find($id)->delete();
-        return $part;
+        return redirect('part');
     }
 }

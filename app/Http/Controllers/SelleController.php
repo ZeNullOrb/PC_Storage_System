@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Selle;
+use App\Models\Part;
+use App\Models\Customer;
 
 class SelleController extends Controller
 {
@@ -14,7 +16,8 @@ class SelleController extends Controller
      */
     public function index()
     {
-        return selle::all();
+        $selles = Selle::all();
+        return view('selle.index',compact('selles'));
     }
 
     /**
@@ -24,7 +27,9 @@ class SelleController extends Controller
      */
     public function create()
     {
-        //
+        $parts = Part::select(['id','title'])->get();
+        $customers = Customer::select(['id','name'])->get();
+        return view('selle.create',compact('parts'),compact('customers'));
     }
 
     /**
@@ -36,7 +41,7 @@ class SelleController extends Controller
     public function store(Request $request)
     {
         $selle = selle::create($request->all());
-        return $selle;
+        return redirect('selle');
     }
 
     /**
@@ -48,7 +53,7 @@ class SelleController extends Controller
     public function show($id)
     {
         $selle = selle::find($id);
-        return $selle;
+        return view('selle.show',compact('selle'));
     }
 
     /**
@@ -59,7 +64,10 @@ class SelleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $selle = Selle::find($id);
+        $parts = Part::select(['id','title'])->get();
+        $customers = Customer::select(['id','name'])->get();
+        return view('selle.create',compact('parts'),compact('customers'));
     }
 
     /**
@@ -71,8 +79,9 @@ class SelleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $selle = selle::find($id)->update($request->all());
-        return $selle;
+        $selle = selle::find($id);
+        $selle->update($request->all());
+        return redirect('selle/'.$selle->id);
     }
 
     /**
@@ -84,6 +93,6 @@ class SelleController extends Controller
     public function destroy($id)
     {
         $selle = selle::find($id)->delete();
-        return $selle;
+        return redirect('selle');
     }
 }
