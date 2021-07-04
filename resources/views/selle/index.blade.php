@@ -21,7 +21,7 @@
     </thead>
 
     <tbody>
-        @foreach ($selle as $selle)
+        @foreach ($selles as $selle)
         <tr>
             <td>
                 {{ $selle->id }}
@@ -33,7 +33,7 @@
                 {{$selle->quantity}}
             </td>
             <td>
-                {{ $selle->totle }}
+                {{ $selle->total }}
             </td>
             <td>
                 {{ @$selle->customer->name }}

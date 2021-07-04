@@ -21,7 +21,10 @@
                 {{$customer->id}}
             </td>
             <td>
-                {{$customer->title}}
+                {{$customer->name}}
+            </td>
+            <td>
+                {{ $customer->phone }}
             </td>
             <td>
                 <a href="/customer/{{ $customer->id }}">Show</a>

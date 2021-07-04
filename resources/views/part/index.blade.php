@@ -21,10 +21,10 @@
         @foreach ($parts as $part)
         <tr>
             <td>
-                {{$part->id}}
+                {{ $part->id }}
             </td>
             <td>
-                {{$part->title}}
+                {{ $part->title }}
             </td>
             <td>
                 {{ $part->quantity }}
