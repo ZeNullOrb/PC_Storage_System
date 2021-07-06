@@ -29,7 +29,7 @@ class SelleController extends Controller
     {
         $parts = Part::select(['id','title'])->get();
         $customers = Customer::select(['id','name'])->get();
-        return view('selle.create',compact('parts'),compact('customers'));
+        return view('selle.create',compact('parts','customers'));
     }
 
     /**
@@ -41,7 +41,7 @@ class SelleController extends Controller
     public function store(Request $request)
     {
         $selle = selle::create($request->all());
-        return redirect('selle');
+        return redirect('selle.create');
     }
 
     /**
@@ -67,7 +67,7 @@ class SelleController extends Controller
         $selle = Selle::find($id);
         $parts = Part::select(['id','title'])->get();
         $customers = Customer::select(['id','name'])->get();
-        return view('selle.create',compact('parts'),compact('customers'));
+        return view('selle.edit',compact('parts','customers','selle'));
     }
 
     /**

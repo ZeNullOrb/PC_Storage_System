@@ -1,13 +1,12 @@
-<form action="/selle/{{ $selle->id }}" method="POST">
+<form action="/selle" method="POST">
     @csrf
     <div>
         <label for="part_id">Part</label>
         <select name="part_id">
             @foreach ($parts as $part)
-                <option
-                    {{ $selle->part_id==$part->id }}>
-                    {{ $part->title }}
-                </option>
+            <option value="{{ $part->id }}">
+                {{ $part->title }}
+            </option>
             @endforeach
         </select>
     </div>
@@ -20,13 +19,12 @@
         <input type="text" name="total">
     </div>
     <div>
-        <label for="customer_id">Part</label>
+        <label for="customer_id">Customer</label>
         <select name="customer_id">
             @foreach ($customers as $customer)
-                <option
-                    {{ $selle->customer_id==$customer->id }}>
-                    {{ $customer->title }}
-                </option>
+            <option value="{{ $customer->id }}">
+                {{ $customer->name }}
+            </option>
             @endforeach
         </select>
     </div>

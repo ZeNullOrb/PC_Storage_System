@@ -22,13 +22,13 @@
         <input type="text" value="{{ $selle->total }}" name="total">
     </div>
     <div>
-        <label for="customer_id">Part</label>
+        <label for="customer_id">Customer</label>
         <select name="customer_id">
             @foreach ($customers as $customer)
                 <option
                     {{ $selle->customer_id==$customer->id?'selected':'' }}
                     value="{{ $customer->id }}">
-                    {{ $customer->title }}
+                    {{ $customer->name }}
                 </option>
             @endforeach
         </select>

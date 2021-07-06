@@ -12,10 +12,10 @@ class SellesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Selles')->insert(['part_id'=> 0, 'quantity'=> 1, 'total'=> 211.85, 'customer_id'=>0]);
-        DB::table('Selles')->insert(['part_id'=> 2, 'quantity'=> 1, 'total'=> 1549.99, 'customer_id'=>0]);
-        DB::table('Selles')->insert(['part_id'=> 1, 'quantity'=> 5, 'total'=> 211.85, 'customer_id'=>1]);
-        DB::table('Selles')->insert(['part_id'=> 1, 'quantity'=> 1, 'total'=> 1589.50, 'customer_id'=>2]);
-        DB::table('Selles')->insert(['part_id'=> 2, 'quantity'=> 1, 'total'=> 1549.99, 'customer_id'=>2]);
+        DB::table('Selles')->insert(['part_id'=> 1, 'quantity'=> 1, 'total'=> 211.85, 'customer_id'=>1]);
+        DB::table('Selles')->insert(['part_id'=> 3, 'quantity'=> 1, 'total'=> 1549.99, 'customer_id'=>1]);
+        DB::table('Selles')->insert(['part_id'=> 2, 'quantity'=> 5, 'total'=> 1589.50, 'customer_id'=>2]);
+        DB::table('Selles')->insert(['part_id'=> 2, 'quantity'=> 1, 'total'=> 317.90, 'customer_id'=>3]);
+        DB::table('Selles')->insert(['part_id'=> 3, 'quantity'=> 1, 'total'=> 1549.99, 'customer_id'=>3]);
     }
 }
