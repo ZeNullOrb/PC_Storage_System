@@ -1,3 +1,6 @@
+@extends('layout')
+
+@section('content')
 <form action="/selle/{{ $selle->id }}" method="POST">
     @csrf
     @method('PUT')
@@ -35,3 +38,4 @@
     </div>
     <button type= "submit">Save</button>
 </form>
+@endsection

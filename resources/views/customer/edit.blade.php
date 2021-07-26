@@ -1,3 +1,6 @@
+@extends('layout')
+
+@section('content')
 <form action="/customer" method="POST">
     @csrf
     <div>
@@ -10,3 +13,4 @@
     </div>
     <button type= "submit">Save</button>
 </form>
+@endsection

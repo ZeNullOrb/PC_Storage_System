@@ -1,3 +1,6 @@
+@extends('layout')
+
+@section('content')
 <a href="/customer/create">New Customer</a>
 <table>
     <thead>
@@ -40,3 +43,4 @@
     </tbody>
 
 </table>
+@endsection

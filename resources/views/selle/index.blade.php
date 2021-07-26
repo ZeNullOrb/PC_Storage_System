@@ -1,3 +1,6 @@
+@extends('layout')
+
+@section('content')
 <a href="/selle/create">New Sale</a>
 <table>
     <thead>
@@ -52,3 +55,4 @@
     </tbody>
 
 </table>
+@endsection
